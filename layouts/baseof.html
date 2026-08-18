@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<meta name="author" content="{{.Site.Params.Author}}">
+	<title>{{.Page.Title}}</title>
+	<meta name="description" content="{{.Site.Params.Description}}">
+	<link rel="canonical" href="{{.Permalink}}">
+
+	<meta name="twitter:title" content="{{.Site.Title}}">
+	<meta name="twitter:description" content="{{.Site.Params.Description}}">
+	<meta name="twitter:url" content="{{.Permalink}}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="{{.Permalink}}index/cover.png">
+
+	<meta property="og:title" content="{{.Site.Title}}">
+	<meta property="og:description" content="{{.Site.Params.Description}}">
+	<meta property="og:url" content="{{.Permalink}}">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{{.Permalink}}index/cover.png">
+
+	<meta itemprop="name" content="{{.Site.Title}}">
+	<meta itemprop="description" content="{{.Site.Params.Description}}">
+	<meta itemprop="image" content="{{.Permalink}}index/cover.png">
+	<meta itemprop="datePublished" content="{{ .Site.Params.DatePublished }}">
+	<meta itemprop="dateModified" content="{{ .Site.Params.DateModified }}">
+
+	<script type="application/ld+json">
+		{{ dict
+			"@context" "https://schema.org/"
+			"@type" "WebSite"
+			"name" .Site.Title
+			"url" .Permalink
+			"image" (printf "%sindex/cover.png" .Permalink)
+		| jsonify | safeJS }}
+	</script>
+	<script type="application/ld+json">
+		{{ dict
+			"@context" "http://schema.org"
+			"@type" "LocalBusiness"
+			"name" .Site.Title
+			"image" (printf "%sindex/cover.png" .Permalink)
+			"address" (dict
+				"@type" "PostalAddress"
+				"streetAddress" .Site.Params.Store.Address
+				"addressLocality" .Site.Params.Store.Location
+				"addressCountry" "KR"
+			)
+			"telephone" .Site.Params.Store.Tel
+			"url" .Permalink
+		| jsonify | safeJS }}
+	</script>
+	<link rel="preconnect" href="https://rsms.me/">
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+	</style>
+	{{ with (templates.Defer (dict "key" "global")) }}
+		{{ partial "css.html" . }}
+	{{ end }}
+
+	<script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body class="antialiased bg-black text-zinc-300">
+	<header class="h-screen relative">
+		<div id="hero-slides" class="absolute top-0 left-0 w-full h-full -z-10 brightness-[0.20] overflow-hidden" aria-hidden="true">
+			<img class="hero-slide absolute inset-0 w-full h-full object-cover object-center opacity-100" src="/index/cover.png" alt="">
+			{{ range $n := seq 1 6 }}
+			<img class="hero-slide absolute inset-0 w-full h-full object-cover object-center opacity-0" src="{{ printf "/index/hostess/hostess-%02d.png" $n }}" alt="">
+			{{ end }}
+		</div>
+		<div class="w-full h-full flex items-center justify-center">
+			<div class="space-y-10">
+				<div class="p3 drop-shadow-lg" style="font-family: 'Orbitron', sans-serif;">
+					<div class="mt-4 text-[#00bb55] font-medium text-4xl sm:text-6xl text-center">{{ .Site.Params.Store.NameEn | upper }}</div>
+					<div class="mt-3 text-center text-gray-100 text-xl sm:text-3xl">
+						<div>{{ .Site.Params.Store.LocationEn | upper }} {{ .Site.Params.Store.CategoryEn | upper }}</div>
+					</div>
+				</div>
+				<div class="text-center text-gray-100 drop-shadow-lg">
+					<div class="text-xl sm:text-3xl">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }}</div>
+					<div class="text-2xl sm:text-4xl font-semibold text-[#00bb55]">{{ .Site.Params.Store.Name }}</div>
+				</div>
+			</div>
+		</div>
+		<div class="absolute left-0 bottom-3 w-full">
+			<svg xmlns="http://www.w3.org/2000/svg" class="animate-bounce w-8 sm:w-10 mx-auto text-[#00bb55] opacity-70" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+			   <circle cx="12" cy="12" r="9"></circle>
+			   <line x1="8" y1="12" x2="12" y2="16"></line>
+			   <line x1="12" y1="8" x2="12" y2="16"></line>
+			   <line x1="16" y1="12" x2="12" y2="16"></line>
+			</svg>
+		</div>
+		<script>
+		{
+			const slides = Array.from(document.querySelectorAll("#hero-slides .hero-slide"))
+			if (slides.length > 1) {
+				let i = 0
+				const fadeMs = 800
+				const holdMs = 3200
+				const activate = (el) => {
+					el.classList.remove("is-zooming")
+					void el.offsetWidth
+					el.classList.add("is-zooming")
+				}
+				slides.forEach((el, idx) => {
+					el.style.transition = `opacity ${fadeMs}ms ease-in-out`
+					el.style.opacity = idx === 0 ? "1" : "0"
+					el.style.zIndex = idx === 0 ? "2" : "1"
+				})
+				activate(slides[0])
+				setInterval(() => {
+					const cur = slides[i]
+					const nextIdx = (i + 1) % slides.length
+					const next = slides[nextIdx]
+					next.style.zIndex = "3"
+					activate(next)
+					next.style.opacity = "1"
+					cur.style.opacity = "0"
+					setTimeout(() => {
+						cur.classList.remove("is-zooming")
+						cur.style.zIndex = "1"
+						next.style.zIndex = "2"
+					}, fadeMs)
+					i = nextIdx
+				}, holdMs)
+			}
+		}
+		</script>
+	</header>
+	<main class="space-y-10 lg:space-y-0">
+		{{ block "main" . }}{{ end }}
+		<div class="sticky bottom-8 text-right">
+			<span class="inline-block mr-4">
+				{{ if .Site.Params.IsAdsEnabled }}
+				<a class="bg-[#00bb55] py-2 px-3 rounded-lg shadow shadow-black flex w-fit space-x-1 text-white" href="tel:{{.Site.Params.Store.Tel}}">
+					<svg xmlns="http://www.w3.org/2000/svg" class="flex-none w-4 align-middle" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					   <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+					</svg>
+					<span class="flex-none text-sm font-bold">예약 문의 전화</span>
+				</a>
+				{{ else }}
+				<a class="bg-sky-500 py-2 px-3 rounded-lg shadow shadow-black flex w-fit space-x-1 text-white" href="https://t.me/{{.Site.Params.AdsTelegramId}}" target="_blank" rel="noopener noreferrer nofollow">
+					{{ partial "icon/telegram" "w-5" }}
+					<span class="flex-none text-sm font-bold">광고임대 텔레그램 문의</span>
+				</a>
+				{{ end }}
+			</span>
+		</div>
+	</main>
+	<footer class="mt-10 bg-zinc-900 text-sm">
+		<div class="container mx-auto py-5 px-3 space-y-3">
+			<div>
+				<span>{{.Site.Params.Store.Location}} {{.Site.Params.Store.Name}} {{.Site.Params.Store.Category}}</span>
+				<span>|</span>
+				<span>{{.Site.Params.Store.Address}}</span>
+				<span>|</span>
+				<span>{{.Site.Params.Store.Tel}}</span>
+				<span>|</span>
+				<span>Hosting: Asia/Seoul EC2 AWS(Amazon Web Service)</span>
+			</div>
+			<div>Copyright © {{time.Now.Format "2006"}} {{.Site.Params.Store.Location}} {{.Site.Params.Store.Name}} {{.Site.Params.Store.Category}} Inc. All rights reserved.</div>
+		</div>
+	</footer>
+</body>
+</html>

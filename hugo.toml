@@ -1,0 +1,49 @@
+baseURL = 'https://nsd-singbar.ceo-suo.com/'
+languageCode = 'ko-KR'
+title = '낙성대 노래빠 라비: LAVI'
+
+[params]
+  isAdsEnabled = true
+  adsTelegramId = "ggyuvely"
+
+  description = '낙성대 노래빠 라비는 신림동 1432-73에 자리한 노래빠 매장으로, 봉천·낙성대에서 친구들과 노래방을 찾는 분들에게 알려져 있다.'
+  author = '두리'
+  datePublished = "2026-08-18T08:50:00+09:00"
+  dateModified = "2026-08-18T08:50:00+09:00"
+  [params.store]
+	tel = "010-8306-5747"
+  location = "낙성대"
+	locationEn = "NSD"
+  name = "라비"
+	nameEn = "LAVI"
+	nameIs = "는"
+	category = "노래빠"
+	categoryEn = "Singbar"
+	categoryIs = "는"
+	address = "서울 관악구 신림동 1432-73"
+	googleMapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.9389462868885!2d126.9291926!3d37.4857671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9fbeee0c8b81%3A0x2da5e9f783aed763!2z7ISc7Jq47Yq567OE7IucIOq0gOyVheq1rCDsi6Drprzrj5kgMTQzMi03Mw!5e0!3m2!1sko!2skr!4v1762322947738!5m2!1sko!2skr"
+
+enableRobotsTXT = false
+cleanDestinationDir = true
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
