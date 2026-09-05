@@ -1,6 +1,6 @@
 baseURL = 'https://nsd-singbar.ceo-suo.com/'
 languageCode = 'ko-KR'
-title = '낙성대 노래빠 라비: LAVI'
+title = '낙성대 노래빠 라비 — LAVI'
 
 [params]
   isAdsEnabled = true
