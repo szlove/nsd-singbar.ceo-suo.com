@@ -50,6 +50,7 @@
 				"addressCountry" "KR"
 			)
 			"telephone" .Site.Params.Store.Tel
+			"openingHoursSpecification" (partial "opening-hours-jsonld.html" .Site.Data.hours.days)
 			"url" .Permalink
 		| jsonify | safeJS }}
 	</script>
@@ -63,6 +64,7 @@
 	{{ end }}
 
 	<script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	<script defer src="/js/business-status.js"></script>
 </head>
 <body class="antialiased bg-black text-zinc-300">
 	<header class="h-screen relative">

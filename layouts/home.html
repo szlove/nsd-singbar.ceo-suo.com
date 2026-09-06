@@ -112,6 +112,10 @@
 			<div class="flex-1 flex items-center">
 				<div class="space-y-3">
 					<h2 class="text-white font-bold text-xl">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }} {{ .Site.Params.Store.Name }} 영업시간</h2>
+					<p>
+						<span id="business-status-display" class="inline-block rounded-full px-3 py-1 text-sm font-bold bg-[#00bb55]/20 text-[#00bb55]">영업시간 확인 중</span>
+						<script type="application/json" id="business-status-data">{{ (dict "storeStatus" (.Site.Params.Store.Status | default "운영중") "days" .Site.Data.hours.days) | jsonify | safeJS }}</script>
+					</p>
 					<p>{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }}의 영업시간을 확인 해주세요. 국가공휴일의 경우에는 반드시 유선문의 부탁드립니다.</p>
 					<ul class="grid grid-cols-2 sm:grid-cols-3 gap-3">
 						{{ range $day := .Site.Data.hours.days }}
