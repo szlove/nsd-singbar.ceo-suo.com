@@ -7,11 +7,11 @@ title = '낙성대 노래빠 라비 — LAVI'
   adsTelegramId = "ggyuvely"
 
   description = '관악구 안에서도 낙성대역 언저리는 저녁 자리를 마친 뒤 발걸음을 옮기는 이들이 유독 잦은 동네입니다. 그 흐름 한켠에 자리한 라비는 격식을 크게 차리지 않고 잠깐 들르는 이차 자리로 통하는 노래빠에 속합니다. 오래 머물기보다 짧게 마무리하고 싶은 걸음에 어울리는 곳으로 알려져 있고, 큰 모임보다는 두세 명 단위의 발걸음이 더 잦은 편입니다.'
-  author = '두리'
+  author = '라비'
   datePublished = "2026-08-18T08:50:00+09:00"
   dateModified = "2026-08-18T08:50:00+09:00"
   [params.store]
-	tel = "010-8306-5747"
+	tel = "010-7456-5410"
   location = "낙성대"
 	locationEn = "NSD"
   name = "라비"
@@ -20,8 +20,8 @@ title = '낙성대 노래빠 라비 — LAVI'
 	category = "노래빠"
 	categoryEn = "Singbar"
 	categoryIs = "는"
-	address = "서울 관악구"
-	googleMapSrc = "https://www.google.com/maps?q=서울+관악구&output=embed"
+	address = "서울 관악구 봉천동"
+	googleMapSrc = "https://www.google.com/maps?q=서울+관악구+봉천동&output=embed"
 
 enableRobotsTXT = false
 cleanDestinationDir = true
