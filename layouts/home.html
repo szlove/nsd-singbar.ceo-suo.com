@@ -12,7 +12,7 @@
 					</div>
 					<div>
 						<h2 class="text-white font-bold text-xl">{{ .Site.Params.Store.Name }} 기본 가격</h2>
-						<p class="text-zinc-500 text-sm">100% 투명한 정찰제로 운영 됩니다.</p>
+						<p class="text-zinc-500 text-sm">요금은 방문 전 전화로 확인해 주세요.</p>
 						<ul class="grid grid-cols-2 lg:flex lg:space-x-6">
 							<li class="flex lg:block space-x-2 lg:space-x-0">
 								<div class="font-semibold text-white">1인</div>
@@ -68,9 +68,9 @@
 			   <path d="M12 7v10"></path>
 			</svg>
 			<div class="flex-1 p-3">
-				<h3 class="text-white text-xl font-bold mb-2">저렴한 가격</h3>
-				<p class="text-zinc-500 text-sm font-bold">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Name }}{{ .Site.Params.Store.NameIs }} 시설과 규모 대비 저렴한 가격으로 서비스를 제공 합니다.</p>
-				<p class="text-zinc-500 text-sm font-bold">초저녁 할인 이벤트 및 게릴라성 주대 이벤트를 활용 하시면 더욱 저렴하게 이용 가능 합니다.</p>
+				<h3 class="text-white text-xl font-bold mb-2">가격 안내</h3>
+				<p class="text-zinc-500 text-sm font-bold">{{ .Site.Params.Store.Name }} 인원별 기본 가격은 위 표에서 볼 수 있습니다.</p>
+				<p class="text-zinc-500 text-sm font-bold">진행 중인 이벤트는 전화로 문의해 주세요.</p>
 			</div>
 		</div>
 		<div class="flex-1 p-3 flex">
@@ -83,8 +83,8 @@
 			   <path d="M20 15v6"></path>
 			</svg>
 			<div class="flex-1 p-3">
-				<h3 class="text-white text-xl font-bold mb-2">연중무휴 24시간</h3>
-				<p class="text-zinc-500 text-sm font-bold">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Name }}{{ .Site.Params.Store.NameIs }} 하루 중 3시간의 대청소시간을 제외 한 모든 시간에 운영 됩니다.</p>
+				<h3 class="text-white text-xl font-bold mb-2">영업 시간 안내</h3>
+				<p class="text-zinc-500 text-sm font-bold">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Name }}{{ .Site.Params.Store.NameIs }} 운영 시간은 방문 전 전화로 확인해 주세요.</p>
 				<p class="text-zinc-500 text-sm font-bold">공휴일은 물론 365일 연중무휴 방문하셔서 즐거운 파티를 즐기실 수 있습니다.</p>
 			</div>
 		</div>
@@ -98,9 +98,8 @@
 			   <path d="M16 15v-6h2a2 2 0 1 1 0 4h-2"></path>
 			</svg>
 			<div class="flex-1 p-3">
-				<h3 class="text-white text-xl font-bold mb-2">VIP 서비스</h3>
-				<p class="text-zinc-500 text-sm font-bold">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Name }}{{ .Site.Params.Store.NameIs }} 최대규모 {{ .Site.Params.Store.Category }}입니다. 현대적인 모던한 인테리어는 물론 최고급 음향시설을 제공 합니다.</p>
-				<p class="text-zinc-500 text-sm font-bold">100명이 넘는 상주 직원들이 오직 고객님의 완벽한 파티공간을 위해 노력 합니다.</p>
+				<h3 class="text-white text-xl font-bold mb-2">업소 안내</h3>
+				<p class="text-zinc-500 text-sm font-bold">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Name }}{{ .Site.Params.Store.NameIs }} {{ .Site.Params.Store.Category }}입니다. </p>
 			</div>
 		</div>
 	</div>
@@ -151,8 +150,8 @@
 						<li>주문하신 위스키(양주)</li>
 						<li>진안주 모듬과일</li>
 						<li>소주, 맥주</li>
-						<li>최신 인테리어의 룸</li>
-						<li>고급 음향시설(노래방, 플레이어)</li>
+						<li>룸</li>
+						<li>음향시설(노래방, 플레이어)</li>
 					</ol>
 					<p>위 5가지 서비스가 제공 됩니다.</p>
 					<p class="text-zinc-500 text-sm">* 시간 연장시 술 추가를 하시지 않을 경우 별도의 룸 사용료(RT)가 발생 합니다.</p>
@@ -260,7 +259,7 @@
 <section>
 	<div class="container mx-auto px-3 lg:mt-10">
 		<h2 class="text-xl font-bold text-white text-center">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }} {{ .Site.Params.Store.Name }} 이미지</h2>
-		<div class="mt-3 text-center text-zinc-500 font-bold">{{ .Site.Params.Store.Name }}에는 소·중·대 크기의 룸이 준비되어 있으며, 모던한 인테리어와 최고급 음향 시설이 세팅되어 있습니다.</div>
+		<div class="mt-3 text-center text-zinc-500 font-bold"></div>
 		<div class="mt-8 w-full">
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 max-w-6xl mx-auto">
 				{{ $roomDescs := slice "네이비 벨벳 소파와 골드 프레임 협탁, 추상화 액자가 걸린 응접 라운지" "보라·골드 조명 아래 벌룬 장식과 대리석 댄스플로어가 있는 파티 홀" "금장 원형 샹들리에와 실버 소파, 원형 스톤 월아트가 있는 라운지" "골드 다이아몬드 벽면과 대형 노래방 스크린, 마이크 두 대가 놓인 무대" }}
@@ -284,23 +283,23 @@
 			<lottie-player class="flex-1 w-full" src="https://assets4.lottiefiles.com/private_files/lf30_a4mKwA.json" background="transparent" speed="1" loop="" autoplay=""></lottie-player>
 			<div class="flex-1 flex items-center">
 				<div class="space-y-3">
-					<h2 class="text-white font-bold text-xl">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }} {{ .Site.Params.Store.Name }} 예약방문 이벤트</h2>
-					<p>{{ .Site.Params.Store.Name }} 예약방문 고객에 한해 무료 및 할인 이벤트가 준비 되어있습니다</p>
+					<h2 class="text-white font-bold text-xl">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }} {{ .Site.Params.Store.Name }} 이벤트 안내</h2>
+					<p>{{ .Site.Params.Store.Name }} 이벤트는 전화로 문의해 주세요</p>
 					<ul class="space-y-3 list-decimal ml-6">
 						<li>
-							<h3 class="text-white font-bold">초저녁 주대 할인 이벤트</h3>
+							<h3 class="text-white font-bold">초저녁 이벤트 안내</h3>
 							<div>상시 이벤트가 아니므로 방문시 상담전화를 통해 이벤트 유무를 확인 해주세요</div>
 						</li>
 						<li>
-							<h3 class="text-white font-bold">{{ .Site.Params.Store.Location }}권에 계신 고객 무료픽업</h3>
-							<div>현재 {{ .Site.Params.Store.Location }}권에 계신 예약고객에 한해 고급승용차로 무료픽업을 해드리고 있습니다</div>
+							<h3 class="text-white font-bold">{{ .Site.Params.Store.Location }}권 방문 안내</h3>
+							<div>방문 전 전화로 위치를 안내받으세요</div>
 						</li>
 						<li>
-							<h3 class="text-white font-bold">자가용 이용 고객 무료 발렛파킹</h3>
-							<div>자가용을 이용하시는 예약고객에 한해 호텔 발렛파킹을 무료로 지원 합니다</div>
+							<h3 class="text-white font-bold">자가용 이용 안내</h3>
+							<div>주차 가능 여부는 전화로 확인해 주세요</div>
 						</li>
 					</ul>
-					<p class="text-zinc-500 text-sm">{{ .Site.Params.Store.Name }} {{ .Site.Params.Store.Category }}의 예약방문을 통해서만 제공 되는 이벤트입니다.</p>
+					<p class="text-zinc-500 text-sm">{{ .Site.Params.Store.Name }} {{ .Site.Params.Store.Category }}의 이벤트 진행 여부는 전화로 확인해 주세요.</p>
 				</div>
 			</div>
 		</div>
@@ -355,7 +354,7 @@
 			<p class="leading-relaxed text-lg">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }}에서 특별한 하루를 더욱 특별하게!</p>
 			<span class="inline-block h-1 w-10 rounded bg-gray-500 mt-8 mb-6"></span>
 			<p class="text-white font-medium title-font tracking-wider text-sm">{{ .Site.Params.Store.LocationEn | upper }} {{ .Site.Params.Store.CategoryEn | upper }} {{ .Site.Params.Store.NameEn | upper }}</p>
-			<p class="text-gray-500">{{ .Site.Params.Store.Location }} 최대규모 {{ .Site.Params.Store.Category }}</p>
+			<p class="text-gray-500">{{ .Site.Params.Store.Location }} {{ .Site.Params.Store.Category }}</p>
 		</div>
 	</div>
 </section>
